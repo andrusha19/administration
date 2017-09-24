@@ -125,22 +125,31 @@ public class UserDAOImpl implements UserDAO{
         String error="";
         if(conn != null){
             PreparedStatement state;
-            String statement = "UPDATE " + TableName + " SET password=md5(?), email=?, "
-                    + "registration_time=?, last_edit_time=?, role=? WHERE name=?;";
+            String statement;
+            if(user.getPassword() != null)
+                statement = "UPDATE " + TableName + " SET email=?, "
+                        + "registration_time=?, last_edit_time=?, role=?, password=md5(?) WHERE name=?;";
+            else
+                statement = "UPDATE " + TableName + " SET email=?, "
+                        + "registration_time=?, last_edit_time=?, role=? WHERE name=?;";
             try{
                 conn.setAutoCommit(false);
                 String value;
                 state = conn.prepareStatement(statement);
-                state.setString(1, user.getPassword());
-                state.setString(2, user.getEmail());
+                state.setString(1, user.getEmail());
                 Date date = user.getRegistration_time(); 
                 Timestamp timestamp = new Timestamp(date.getTime()); 
-                state.setTimestamp(3, timestamp);
+                state.setTimestamp(2, timestamp);
                 date = user.getLast_edit_time(); 
                 timestamp = new Timestamp(date.getTime()); 
-                state.setTimestamp(4, timestamp);
-                state.setString(5, user.getRole());
-                state.setString(6, user.getName());
+                state.setTimestamp(3, timestamp);
+                state.setString(4, user.getRole());
+                if(user.getPassword() != null){
+                    state.setString(5, user.getPassword());
+                    state.setString(6, user.getName());
+                }else{
+                    state.setString(5, user.getName());
+                }
                 state.executeUpdate();
                 conn.commit();
             }catch(SQLException e){

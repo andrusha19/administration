@@ -1,19 +1,20 @@
 
 package administration.sql;
 
+import java.io.FileInputStream;
 import java.sql.*;
+import java.util.Properties;
 
 public class ConnectionManager {
-        static final String DB_URL = "jdbc:postgresql://127.0.0.1:5555/asd";
-        static final String USER = "user";
-        static final String PASS = "user";
-        static final String TableName = "users";
+        static  String DB_URL = "jdbc:postgresql://127.0.0.1:5555/asd";
+        static  String USER = "user";
+        static  String PASS = "user";
+        static  String TableName = "users";
         
         static Connection conn = null;
         
-        static String error = "";
-        
         public static Connection connect(){
+            
             if(conn != null)
             {   
                 return conn;
