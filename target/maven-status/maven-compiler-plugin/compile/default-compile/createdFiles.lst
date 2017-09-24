@@ -1,0 +1,11 @@
+administration\servlet\BrowseServlet.class
+administration\sql\UserDAO.class
+administration\servlet\ManageServlet.class
+administration\servlet\LoginServlet.class
+administration\sql\ConnectionManager.class
+administration\sql\UserDAOImpl.class
+administration\servlet\HomePageServlet.class
+administration\servlet\RegisterServlet.class
+administration\data\User.class
+administration\filter\RequestFilter.class
+administration\servlet\LogOutServlet.class
