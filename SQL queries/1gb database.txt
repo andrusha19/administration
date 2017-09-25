@@ -1,0 +1,11 @@
+Базы данных PostgreSQL
+---------------------
+
+ Имя базы:     xgbua_x_adminfce
+               Киев, Основной ДЦ
+ сервер:       postgres17.1gb.ua
+ пользователь: xgbua_x_adminfce
+ пароль:       6da725390nm
+ база активна: да
+ строка соединения:
+    host=postgres17.1gb.ua port=5432 dbname=xgbua_x_adminfce user=xgbua_x_adminfce password=6da725390nm
