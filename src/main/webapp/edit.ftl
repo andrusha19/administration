@@ -25,7 +25,7 @@
                     </#if>
             </select><br />
             </#if>  
-            <input type="submit" name="Send" value="Send" />
+            <input type="submit" name="Send" value="OK" />
             <input type="submit" name="Cancel" value="Cancel" />
             <#if user.getName() != edituser.getName()>
                 <input type="submit" name="Delete" value="Delete user" />

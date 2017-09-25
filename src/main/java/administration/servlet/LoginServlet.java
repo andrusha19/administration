@@ -82,7 +82,7 @@ public class LoginServlet extends HttpServlet {
                     request.getSession(true).setAttribute("user", user);
                     response.sendRedirect(request.getContextPath() + "/browse");
                 }else{
-                    error = "Your password is incorrect." + pass + " , " + user.getPassword();
+                    error = "Your password is incorrect.";
                     request.setAttribute("error", error);
                     request.getRequestDispatcher("/login.ftl").forward(request, response);
                 }
